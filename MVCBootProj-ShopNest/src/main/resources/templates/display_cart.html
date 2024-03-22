@@ -1,0 +1,48 @@
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+  <div>
+    <h1 style="color:Crimson; text-align: center;">Cart item</h1>
+        <table align="center" bgcolor="MintCream" border="2">
+           <tr>
+               <th>Product Id</th>
+               <th>Product Name</th>
+               <th>Description</th>
+               <th>Image</th>
+               <th>Sell Price</th>
+               <th>Cost Price</th>
+               <th>Stock Units</th>
+               <th>Date</th>
+               <th>Created By User</th>
+           </tr>
+           <tr >
+               <td><span th:text="${product.productId}"/></td>
+               <td><span th:text="${product.prodName}"/></td>
+               <td><span th:text="${product.desc}"/></td>
+               <td>
+                   <img th:src="${product.img}"  th:alt="${product.prodName}" style="width: 100px; height: 100px">
+               </td>
+               <td><span th:text="${product.sellPrice}"/></td>
+               <td><span th:text="${product.costPrice}"/></td>
+               <td><span th:text="${product.stockUnit}"/></td>   
+               <td><span th:text="${product.date}"/></td>
+               <td><span th:text="${product.createdByUser.userId}"></td>   
+            </tr>            
+        </table>
+    </div>
+
+  <br><br>
+  
+  <center> 
+     <form th:action="@{/user/buy}" method="get">
+         <span>How many items to buy :: </span> <input type="text" name="quantity" placeholder="Enter quantity" autofocus="autofocus" required=true>
+         <br><br>
+         <button type="submit">Buy product</button>
+     </form>
+     
+      <a th:href="@{/user/displaybuyer}"><img th:src="@{/images/back.jpg}" width="50px" height="50px"><br>back</a>
+  </center>
+</html>
+
+
+</html>

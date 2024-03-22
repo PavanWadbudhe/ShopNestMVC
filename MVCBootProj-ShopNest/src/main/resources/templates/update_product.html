@@ -1,0 +1,55 @@
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<link rel="stylesheet" th:href="@{/css/style.css}"/>
+<script type="text/javascript" th:src="@{/js/validation.js}">
+
+</script>
+
+   <form th:action="@{/user/edit}" method="POST" th:object="${prod}"  >
+   <h1 style="color:DarkCyan; text-align: center;">Update Product</h1>
+    <table align="center" bgcolor="LavenderBlush">
+       <tr>
+           <td>Product Id ::</td>
+          <td><input type="text" th:field="*{productId}" readonly="true"/></td>
+       </tr>
+       <tr>
+          <td>Product Name ::</td>
+          <td><input type="text" th:field="*{prodName}" readonly="true"/></td>
+       </tr>
+       <tr>
+          <td>Description ::</td>
+          <td><textarea  th:field="*{desc}"></textarea><span th:if="${#fields.hasErrors('desc')}" th:errors="*{desc}"></span></td>
+       </tr>
+       <tr>
+          <td>Image ::</td>
+          <td><input type="file" th:field="*{img}"/><span th:if="${#fields.hasErrors('img')}" th:errors="*{img}"></span></td>
+       </tr>
+       <tr>
+          <td>Sell Price ::</td>
+          <td><input type="text" th:field="*{sellPrice}"/><span th:if="${#fields.hasErrors('sellPrice')}" th:errors="*{sellPrice}"></span></td>
+       </tr>
+       <tr>
+          <td>Cost Price ::</td>
+          <td><input type="text"  th:field="*{costPrice}"/><span th:if="${#fields.hasErrors('costPrice')}" th:errors="*{costPrice}"></span></td>
+       </tr>
+       <tr>
+          <td>Stock unit ::</td>
+          <td><input type="text" th:field="*{stockUnit}"/><span th:if="${#fields.hasErrors('stockUnit')}" th:errors="*{stockUnit}"></span></td>
+       </tr>
+       <tr>
+          <td>Date ::</td>
+          <td><input type="date" th:field="*{date}"/><span th:if="${#fields.hasErrors('date')}" th:errors="*{date}"></span></td>
+       </tr>
+       <tr>
+          <td colspan="1"><input type="submit" value="Update Product"/></td>
+          <td colspan="1"><input type="reset" value="Cancel"/></td>
+       </tr>
+    </table>
+</form>
+<center>
+    <a th:href="@{/user/displayseller}"><img th:src="@{/images/back.jpg}" width="50px" height="50px"><br>Back</a>
+</center>
+   
+
+</html>

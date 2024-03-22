@@ -1,0 +1,58 @@
+
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+  <h1 style="color:teal;text-align: center;">Welcome buyer</h1>
+  <br>
+
+
+
+    <div th:if="${!prodList.empty}">
+    <h1 style="color:Crimson; text-align: center;">Products</h1>
+        <table align="center" bgcolor="MintCream" border="2">
+           <tr>
+               <th>Product Id</th>
+               <th>Product Name</th>
+               <th>Description</th>
+               <th>Image</th>
+               <th>Sell Price</th>
+               <th>Cost Price</th>
+               <th>Stock Units</th>
+               <th>Date</th>
+               <th>Created By User</th>
+               <th>Operations</th>
+           </tr>
+           <tr th:each="prod : ${prodList}" th:if="${prod.stockUnit > 0}">
+               <td><span th:text="${prod.productId}"/></td>
+               <td><span th:text="${prod.prodName}"/></td>
+               <td><span th:text="${prod.desc}"/></td>
+               <td>
+                   <img th:src="${prod.img}"  th:alt="${prod.prodName}" style="width: 100px; height: 100px">
+               </td>
+               <td><span th:text="${prod.sellPrice}"/></td>
+               <td><span th:text="${prod.costPrice}"/></td>
+               <td><span th:text="${prod.stockUnit}"/></td>   
+               <td><span th:text="${prod.date}"/></td>
+               <td><span th:text="${prod.createdByUser.userId}"></td>   
+               <td>
+                   <a th:href="@{/user/addtocart(no=${prod.productId})}"><img  th:src="@{/images/addtocart.jpg}" height="60px" width="60px"/><br>Add to cart</a>
+               </td>
+            </tr>
+            
+        </table>
+    </div>
+    <div th:if="${prodList.empty}">
+        <h1 style="color:activeborder; text-align: center;">Product not found ...</h1>
+    </div>
+
+  <br><br>
+  <h2 style="color:green; text-align: center;" th:text="${resultMsg}"/>
+
+
+  <center>
+      <a th:href="@{/}"><img height="100px" width="100px"  th:src="@{/images/home.jpg}">Home</a>
+      &nbsp;
+      <a th:href="@{/user/buyerinfo}"><img height="100px" width="100px"  th:src="@{/images/buyer_icon.jpg}">Buyer Info</a>
+  </center>
+</html>
+

@@ -1,0 +1,43 @@
+
+
+<html xmlns:th="http://www.thymeleaf.org">
+    
+    <h1 style="color:Turquoise; text-align: center;">Buyer Info</h1>
+    <table align="center" bgcolor="PapayaWhip" border="2"> 
+        <tr>
+            <th>Buyer Id</th><th>First Name</th><th>Last Name</th><th>Date of birth</th><th>Email Id</th><th>Phone no</th><th>Amount</th><th>Address</th><th>Role Name</th><th>Role Description</th>
+        </tr>
+        <tr th:each="buyer :${buyerList}">
+            <td><span th:text="${buyer.userId}" /> </td>
+            <td><span th:text="${buyer.firstName}" /> </td>
+            <td><span th:text="${buyer.lastName}" /> </td>
+            <td><span th:text="${buyer.dob}" /> </td>
+            <td><span th:text="${buyer.emailId}" /> </td>
+            <td><span th:text="${buyer.phno}" /> </td>
+            <td><span th:text="${buyer.amount}" /> </td>
+            <td><span th:text="${buyer.addrs}" /> </td>
+            <td><span th:text="${buyer.userRole.roleName}" /> </td>
+            <td><span th:text="${buyer.userRole.roleDesc}" /> </td>
+        </tr>
+    </table>
+    <br><br>
+    
+    <h1 style="color:Turquoise; text-align: center;">Purchase Info</h1>
+    <table align="center" bgcolor="PapayaWhip" border="2"> 
+        <tr>
+            <th>Purchase Date</th><th>Product Id</th><th>Total Unit</th><th>Purchase By User</th><th>Purchase From User</th>
+        </tr>
+        <tr th:each="purchase :${purchaseList}">
+            <td><span th:text="${purchase.date}" /> </td>
+            <td><span th:text="${purchase.productId.productId}" /> </td>
+            <td><span th:text="${purchase.totalUnit}" /> </td>
+            <td><span th:text="${purchase.purchaseByUser.userId}" /> </td>
+            <td><span th:text="${purchase.purchaseFromUser.userId}" /> </td>
+        </tr>
+    </table>
+    <br><br>
+    
+    <center>
+        <a th:href="@{/user/displaybuyer}"><img th:src="@{/images/back.jpg}" width="50px" height="50px"><br>Back</a>
+    </center>
+</html>

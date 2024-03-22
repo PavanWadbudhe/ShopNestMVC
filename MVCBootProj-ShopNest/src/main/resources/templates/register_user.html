@@ -1,0 +1,74 @@
+<html xmlns:th="http://www.thymeleaf.org">
+
+<link rel="stylesheet" th:href="@{/css/style.css}"/>
+<script type="text/javascript" th:src="@{/js/validation.js}">
+
+</script>
+
+
+<h1 style="color:red; text-align: center;">User Registration</h1>
+
+<form th:action="@{/user/register}"  method="POST"  th:object="${user}"  onsubmit="return doValidations(this)"> 
+    <table align="center"  bgcolor="cyan" border="0">
+       <tr>
+           <td>First Name ::</td>
+           <td><input type="text" th:field="*{firstName}" /><span id="fnameErr" th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}"></span></td>
+       </tr>
+       <tr>
+           <td>Last Name ::</td>
+           <td><input type="text" th:field="*{lastName}"/><span id="lnameErr" th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"></span></td>
+       </tr>
+       <tr>
+           <td>Date of Birth ::</td>
+           <td><input type="date" th:field="*{dob}" /><span id="dobErr" th:if="${#fields.hasErrors('dob')}" th:errors="*{dob}" ></span></td>
+       </tr>
+       <tr>
+           <td>Email Id ::</td>
+           <td><input type="text" th:field="*{emailId}"/><span id="emailErr" th:if="${#fields.hasErrors('emailId')}" th:errors="*{emailId}"></span></td>
+       </tr>
+       <tr>
+           <td>Contact No  ::</td>
+           <td><input type="text" th:field="*{phno}"/><span id="phoneErr" th:if="${#fields.hasErrors('phno')}" th:errors="*{phno}"></span></td>
+       </tr>
+       <tr>
+           <td>Amount ::</td>
+           <td><input type="text" th:field="*{amount}"/><span id="amountErr" th:if="${#fields.hasErrors('amount')}" th:errors="*{amount}"></span></td>
+       </tr>
+       <tr>
+           <td>Password ::</td>
+           <td><input type="password" th:field="*{pword}"/><span id="pwordErr" th:if="${#fields.hasErrors('pword')}" th:errors="*{pword}"></span></td>
+       </tr>
+       <tr>
+           <td>Address ::</td>
+           <td><input type="text" th:field="*{addrs}"/><span id="addrsErr" th:if="${#fields.hasErrors('addrs')}" th:errors="*{addrs}"></span></td>
+       </tr>
+       <tr>
+            <td>User Role ::</td>
+            <td>
+                <select id="rname" name="userRole.roleName"  >
+                    <option value="">-- Select --</option>
+                    <option value="buyer"  >Buyer</option>
+                    <option value="seller" >Seller</option>
+                </select>
+                <span id="roleErr"  th:if="${#fields.hasErrors('userRole.roleName')}" th:errors="*{userRole.roleName}"></span>
+            </td>
+       </tr>
+        <tr>
+            <td>Role Description ::</td>
+            <td><textarea id="rdesc" name="userRole.roleDesc"></textarea><span id="descErr"  th:if="${#fields.hasErrors('userRole.roleDesc')}" th:errors="*{userRole.roleDesc}"></span></td>
+       </tr>
+       <tr>
+           <td colspan="1"><input type="submit" value="Register" ></td>
+            <td colspan="1"><input type="reset" value="Cancel"></td>
+       </tr>
+       
+    </table>
+    <input type="hidden" th:field="*{vFlag}"/>
+    
+</form>
+ <h2 style="color:green; text-align: center;" th:text="${result}"/>
+ <br>
+ <center>
+    <a th:href="@{/}"><img height="100px" width="100px" th:src="@{/images/home.jpg}"><br>Home</a> 
+ </center>
+</html>

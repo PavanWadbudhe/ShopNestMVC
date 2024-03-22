@@ -1,0 +1,27 @@
+
+<html xmlns:th="http://www.thymeleaf.org">
+    
+    <h1 style="color:Turquoise; text-align: center;">Seller Info</h1>
+    <table align="center" bgcolor="PapayaWhip" border="2"> 
+        <tr>
+            <th>Seller Id</th><th>First Name</th><th>Last Name</th><th>Date of birth</th><th>Email Id</th><th>Phone no</th><th>Amount</th><th>Address</th><th>Role Name</th><th>Role Description</th>
+        </tr>
+        <tr th:each="seller :${sellerList}">
+            <td><span th:text="${seller.userId}" /> </td>
+            <td><span th:text="${seller.firstName}" /> </td>
+            <td><span th:text="${seller.lastName}" /> </td>
+            <td><span th:text="${seller.dob}" /> </td>
+            <td><span th:text="${seller.emailId}" /> </td>
+            <td><span th:text="${seller.phno}" /> </td>
+            <td><span th:text="${seller.amount}" /> </td>
+            <td><span th:text="${seller.addrs}" /> </td>
+            <td><span th:text="${seller.userRole.roleName}" /> </td>
+            <td><span th:text="${seller.userRole.roleDesc}" /> </td>
+        </tr>
+    </table>
+    <br><br>
+    
+    <center>
+        <a th:href="@{/user/displayseller}"><img th:src="@{/images/back.jpg}" width="50px" height="50px"><br>Back</a>
+    </center>
+</html>
