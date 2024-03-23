@@ -111,7 +111,6 @@ public class UserOperationsController {
 			                                        BindingResult errors ,
 			                                        RedirectAttributes attrs ) {
 		
-		System.out.println("=====================1");
 		
 		/*
 		//use Validator
@@ -121,10 +120,7 @@ public class UserOperationsController {
 				return "add_product";
 		}
 		*/
-	      System.out.println(product.toString());
-		
-		System.out.println("=====================2");		
-	
+	     
 			if(! image.isEmpty()) {
 				try {
 					String uploadDir="D://images_dir/";
@@ -141,8 +137,7 @@ public class UserOperationsController {
 					
 					System.out.println(product.toString());
 				
-					System.out.println("=====================3");
-		
+					
 					//use Service
 						String msg=userService.addProduct(product);
 						//add result to Redirect Attribute as Flash attribute having redirect scope

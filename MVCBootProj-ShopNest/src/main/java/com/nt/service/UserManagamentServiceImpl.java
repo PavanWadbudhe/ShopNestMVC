@@ -35,10 +35,6 @@ public class UserManagamentServiceImpl implements IUserManagementService {
 	public String userRegistration(UserInfo uinfo) {
 		Optional<UserInfo> opt=userInfoRepo.findByEmailId(uinfo.getEmailId());
 		if(opt.isEmpty()) {
-			//uinfo.setUserRole(roleInfo);
-			//System.out.println(roleInfo.toString()+"============");
-			System.out.println(uinfo.toString()+"==============");
-			System.out.println(uinfo.getUserRole().toString()+"==============");
 			int uid=userInfoRepo.save(uinfo).getUserId();
 			return "User is register with id value ::"+uid;
 		}
