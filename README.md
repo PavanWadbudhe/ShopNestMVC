@@ -1,0 +1,1 @@
+I got a Task from a software company and I asked to complete these Task. I completed these task as a web application in Spring Boot framework i.e. Spring Boot MVC, Spring Boot Data JPA, and OracleDB, Html, CSS, Javascript and I use Eclipse IDE as Build tool . Project description is Thera are 4 table i.e.User_Role table, User table, Product table and User_Purchase table.
